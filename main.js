@@ -6,12 +6,9 @@ fs.readFile('./data.json', 'utf8', (err, data) => {
         obj.map((user) => {
             avg = avg + user.age
         })
-        const result = avg / obj.length
-        const resaultObj = {
-            "avgage": result
-        }
-        const content = JSON.stringify(resaultObj)
-        fs.appendFile('result.json', content, err => {
+        const result = String(avg / obj.length)
+        
+        fs.appendFile('result.txt', result, err => {
             if (err) {
                 console.error(err);
             }
